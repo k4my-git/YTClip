@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="form">
+        <form action="/" method="POST">
+            <label for="url">URL</label>
+            <input class="form-control" type="text" name="url">
+            <input class="btn btn-primary" type="submit" value="GET">
+        </form>
+    </div>
+    {% for post in posts %}
+    <div class="card w-50 mb-3" style="margin: auto;">
+        <h2 class="card-title">title : {{ post.title }}</h2>
+        <p>videoID ： {{ post.video_id }}</p>
+        <p>uploader ： {{ post.uploader }}</p>
+        <p>uploader_id ： {{ post.uploader_id }}</p>
+        <p>view_count ： {{ post.view_count }}</p>
+        <p>like_count ： {{ post.like_count }}</p>
+        <p>upload_day ： {{ post.upload_day }}</p>
+        <a class="btn btn-danger btn-sm" href="/delete/{{ post.id }}" role="button">Delete</a>
+    </div>
+
+{% endfor %}
+{% endblock %}
